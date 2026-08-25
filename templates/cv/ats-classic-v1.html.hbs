@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="{{language}}">
+<head>
+<meta charset="utf-8">
+<title>{{header.name}} — CV</title>
+<style>
+  /* ats-classic-v1: una columna, fuentes estándar, headings canónicos */
+  * { box-sizing: border-box; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11pt;
+    line-height: 1.35;
+    color: #000;
+    margin: 1.6cm;
+    max-width: 21cm;
+  }
+  header h1 { font-size: 18pt; margin: 0 0 2pt; }
+  .contact { margin: 0 0 10pt; font-size: 10pt; }
+  h2 {
+    font-size: 12pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5pt;
+    border-bottom: 1px solid #000;
+    padding-bottom: 2pt;
+    margin: 14pt 0 6pt;
+  }
+  article { margin-bottom: 8pt; page-break-inside: avoid; }
+  article h3 { font-size: 11pt; margin: 0; }
+  .meta { font-size: 10pt; color: #222; margin: 1pt 0 3pt; }
+  ul { margin: 2pt 0 0 16pt; padding: 0; }
+  li { margin-bottom: 1pt; }
+  .skills-list { margin-left: 16pt; padding: 0; }
+  @media print {
+    body { margin: 1cm; }
+    a { color: #000; text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>{{header.name}}</h1>
+  <p class="contact">{{contactLine}}</p>
+</header>
+
+{{#if summary}}
+<section id="summary">
+  <h2>Summary</h2>
+  <p>{{summary}}</p>
+</section>
+{{/if}}
+
+{{#if experience.length}}
+<section id="experience">
+  <h2>Experience</h2>
+  {{#each experience}}
+  <article>
+    <h3>{{this.role}} — {{this.company}}</h3>
+    <p class="meta">{{#if this.startDate}}{{this.startDate}}{{/if}}{{#if this.endDate}} – {{this.endDate}}{{else}} – present{{/if}}{{#if this.location}} · {{this.location}}{{/if}}</p>
+    <ul>
+      {{#each this.bullets}}<li>{{this}}</li>{{/each}}
+    </ul>
+  </article>
+  {{/each}}
+</section>
+{{/if}}
+
+{{#if education.length}}
+<section id="education">
+  <h2>Education</h2>
+  {{#each education}}
+  <article>
+    <h3>{{this.degree}}{{#if this.field}} — {{this.field}}{{/if}}</h3>
+    <p class="meta">{{this.institution}}{{#if this.startDate}} · {{this.startDate}}{{#if this.endDate}}–{{this.endDate}}{{/if}}{{/if}}</p>
+  </article>
+  {{/each}}
+</section>
+{{/if}}
+
+{{#if skills.length}}
+<section id="skills">
+  <h2>Skills</h2>
+  <ul class="skills-list">
+    {{#each skills}}<li>{{this.name}}{{#if this.cefr}} (CEFR {{this.cefr}}){{/if}}</li>{{/each}}
+  </ul>
+</section>
+{{/if}}
+
+{{#if projects.length}}
+<section id="projects">
+  <h2>Projects</h2>
+  {{#each projects}}
+  <article>
+    <h3>{{this.name}}{{#if this.url}} · {{this.url}}{{/if}}</h3>
+    {{#if this.description}}<p class="meta">{{this.description}}</p>{{/if}}
+    {{#if this.highlights.length}}
+    <ul>{{#each this.highlights}}<li>{{this}}</li>{{/each}}</ul>
+    {{/if}}
+  </article>
+  {{/each}}
+</section>
+{{/if}}
+</body>
+</html>
