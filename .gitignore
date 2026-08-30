@@ -39,8 +39,8 @@ desktop.ini
 # opencode agent folder
 .opencode/
 
-# --- TweakCV runtime ---
-data/
+# --- TweakCV runtime (repo root only) ---
+/data/
 
 # --- Graphify internal cache ---
 graphify-out/
