@@ -18,7 +18,11 @@ export interface ExportResult {
 }
 
 async function renderPdf(html: string): Promise<Buffer> {
-  const browser = await puppeteer.launch({ headless: true })
+  const browser = await puppeteer.launch({
+    headless: true,
+    // Linux CI/containers: unprivileged userns disabled → Chrome needs --no-sandbox
+    args: process.platform === 'linux' ? ['--no-sandbox', '--disable-setuid-sandbox'] : [],
+  })
   try {
     const page = await browser.newPage()
     await page.setContent(html, { waitUntil: 'load', timeout: 8_000 })
