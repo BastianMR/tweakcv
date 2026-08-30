@@ -1,4 +1,4 @@
-import { readFileSync, rmSync, writeFileSync } from 'node:fs'
+import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import type Database from 'better-sqlite3'
 import { z } from 'zod'
@@ -99,5 +99,6 @@ export function setApiKey(apiKey: string | null): void {
     rmSync(path, { force: true })
     return
   }
+  mkdirSync(dataDir(), { recursive: true })
   writeFileSync(path, `${JSON.stringify({ api_key: apiKey })}\n`, 'utf8')
 }
