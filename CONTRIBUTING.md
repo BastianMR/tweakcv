@@ -5,9 +5,9 @@ Thanks for your interest in contributing!
 ## Development setup
 
 ```bash
-git clone https://github.com/tweakcv/tweakcv.git
+git clone https://github.com/BastianMR/tweakcv.git
 cd tweakcv
-# TODO: install dependencies
+npm install
 ```
 
 ## Workflow

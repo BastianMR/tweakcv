@@ -43,7 +43,12 @@ desktop.ini
 data/
 
 # --- Graphify internal cache ---
-graphify-out/cache/
+graphify-out/
+
+# --- Internal workflow artifacts (kept local only) ---
+.specify/
+.issues/
+specs/
 
 # --- Playwright ---
 test-results/

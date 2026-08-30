@@ -1,5 +1,8 @@
 # tweakcv
 
+[![CI](https://github.com/BastianMR/tweakcv/actions/workflows/ci.yml/badge.svg)](https://github.com/BastianMR/tweakcv/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 Local open-source app to build your personal CV database and generate ATS-optimized tailored CVs with your own AI.
 
 Your data never leaves your machine — the only network traffic is the AI calls to the provider you configure (OpenAI, Groq, OpenRouter, Ollama, LM Studio, or any OpenAI-compatible endpoint). A deterministic `mock` provider is included so everything works offline.
@@ -64,13 +67,13 @@ Everything is stored locally under `data/` (gitignored): SQLite database, upload
 ## Development
 
 ```bash
-git clone https://github.com/tweakcv/tweakcv.git
+git clone https://github.com/BastianMR/tweakcv.git
 cd tweakcv
 npm install
 npm run dev
 ```
 
-Project workflow, decisions (ADRs) and issue tracking live in [.issues/index.md](.issues/index.md). Spec kit artifacts under [specs/](specs/001-tweakcv-mvp/) and `.specify/`.
+Project workflow, decisions (ADRs) and issue tracking live in `.issues/` and `specs/` (local, not part of the public repo).
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
 
